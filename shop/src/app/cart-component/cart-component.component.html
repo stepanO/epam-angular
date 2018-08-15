@@ -1,0 +1,11 @@
+<section>
+  <div  *ngIf="cart.products.size; else emptyCart">
+  <ul>
+    <li *ngFor="let product of cart.products">
+      {{product.name}} <b>x{{product.count}}</b>&nbsp;<span class="currency">{{product.totalCost | currency}}</span>
+    </li>
+  </ul>
+    <div>Total: {{cart.total | currency}}</div>
+  </div>
+  <ng-template #emptyCart>Cart is empty</ng-template>
+</section>
