@@ -1,5 +1,6 @@
 # Changelog
-
+### Task2 / 28.08.2018 
+ - Moved files to root the folder
 
 ### Task2 / 18.08.2018 
  - Added total count to the cart and functional
