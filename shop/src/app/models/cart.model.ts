@@ -1,36 +1,62 @@
-import {ProductModel} from "../product-component/product.model";
+import {ProductModel} from "./product.model";
+import {CartProductModel} from "./cart-product.model";
 
 export class CartModel {
-  products = new Set<ProductModel>();
-  _total = 0;
+  products = new Map<string, CartProductModel>();
+  private _totalCost: number;
+  private _count: number;
 
-  get total() {
-    return this._total;
+  get totalCost() {
+    return this._totalCost;
   }
 
-  set total(total) {
+  set totalCost(total) {
     if (isNaN(total) || !total) {
-      this._total = 0;
+      this._totalCost = 0;
     } else {
-      this._total = total;
+      this._totalCost = total;
     }
   }
-  
+
+  get totalCount() {
+    return this._count;
+  }
+
+  set totalCount(count) {
+    this._count = count;
+  }
+
   private recalculateTotal() {
-    this._total = Array.from(this.products).reduce((sum, product) => sum += product.totalCost, 0)
+    this._totalCost = 0;
+    this._count = 0;
+
+    this.products.forEach((product) => {
+      this._totalCost += product.totalCost;
+      this._count += product.count;
+    })
   }
 
   addProduct(product: ProductModel) {
-    if (this.products.has(product)) {
-      product.count++;
-    } else {
-      this.products.add(product);
-    }
+    let cartProduct = this.products.get(product.ref) ||
+      this.products
+        .set(product.ref, new CartProductModel(product))
+        .get(product.ref);
+
+    cartProduct.add(1);
     this.recalculateTotal();
   }
 
   removeProduct(product) {
-    this.products.delete(product);
+    this.products.delete(product.ref);
     this.recalculateTotal();
+  }
+
+  decrease(product) {
+    const cartProduct = this.products.get(product.ref);
+
+    if (cartProduct) {
+      cartProduct.remove(1);
+      this.recalculateTotal();
+    }
   }
 }

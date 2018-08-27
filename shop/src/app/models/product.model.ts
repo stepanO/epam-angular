@@ -1,17 +1,13 @@
-import {CategoryEnum} from "./category.enum";
+import {CategoryEnum} from "../product-component/category.enum";
 
 export class ProductModel {
-
+  readonly ref: string;
 
   constructor(public name: string,
               public description: string,
               public price: number,
               public category: CategoryEnum,
-              public isAvailable: boolean,
-              public count: number = 1) {
-  }
-
-  get totalCost() {
-    return this.price * this.count;
+              public isAvailable: boolean) {
+    this.ref = name.trim();
   }
 }

@@ -3,3 +3,14 @@
   background: #eee;
   color: #000;
 }
+
+.product {
+
+  &.disabled {
+    cursor: not-allowed;
+
+    .product__name {
+      color: darkgrey;
+    }
+  }
+}

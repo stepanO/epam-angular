@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ProductModel} from "../../product-component/product.model";
+import {ProductModel} from "../../models/product.model";
 import {CategoryEnum} from "../../product-component/category.enum";
 
 @Injectable({
@@ -24,7 +24,7 @@ export class ProductService {
         'Great Juice',
         50,
         CategoryEnum.Sellable,
-        true
+        false
       ),
       new ProductModel(
         'Water',

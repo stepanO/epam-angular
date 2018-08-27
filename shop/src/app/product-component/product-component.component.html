@@ -1,5 +1,5 @@
-
-<h3>{{product.name}}</h3>
+<div class="product" [ngClass]="{disabled: !product.isAvailable}">
+  <h3 class="product__name">{{product.name}}</h3>
 <ul>
   <li>description: {{product.description}}</li>
   <li>category: {{product.category}}</li>
@@ -8,4 +8,5 @@
 
 <span class="currency">{{product.price | currency}}</span>
 
-<button class="btn btn-success" (click)="onBuy()">Buy</button>
+<button class="btn btn-success" [disabled]="!product.isAvailable" (click)="onBuy.emit()">Buy</button>
+</div>
