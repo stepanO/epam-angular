@@ -8,7 +8,7 @@ import {BgClickDirective} from "./directives/bg-click.directive";
     CommonModule
   ],
   declarations: [BgClickDirective],
-  providers: [LocalStorageService],
+  providers: [],
   exports: [BgClickDirective]
 })
 export class SharedModule {
