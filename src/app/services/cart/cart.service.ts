@@ -34,6 +34,10 @@ export class CartService {
     this._cart.decrease(product);
     this.cart$.next(this._cart);
   }
+
+  clearCart() {
+
+  }
 }
 
 

@@ -2,9 +2,9 @@ import {ProductModel} from "./product.model";
 import {CartProductModel} from "./cart-product.model";
 
 export class CartModel {
-  products = new Map<string, CartProductModel>();
   private _totalCost: number;
   private _count: number;
+  products = new Map<string, CartProductModel>();
 
   get totalCost() {
     return this._totalCost;
@@ -58,5 +58,14 @@ export class CartModel {
       cartProduct.remove(1);
       this.recalculateTotal();
     }
+  }
+
+  clear() {
+    this.init()
+  }
+
+  private init() {
+    this.products = new Map<string, CartProductModel>();
+    this.recalculateTotal();
   }
 }
