@@ -1,0 +1,3 @@
+<h3>{{product.name}}</h3>
+<button (click)="onDecrease.emit()">-</button><b>x{{product.count}}</b><button (click)="onIncrease.emit()">+</button>
+<span class="currency">{{product.totalCost | currency}}</span>&nbsp;<button class="remove" (click)="onRemove.emit()">x</button>
