@@ -1,5 +1,13 @@
 # Changelog
 
+### Task3 / 05.09.2018
+- added Contact Us Component
+- added a directive change fontSize by clicking
+- added LocalStorageService
+- added ConstantsService
+- added GeneratorService
+- added ConfigOptionsService
+
 ### Task3 / 28.08.2018
 - added clearing cart
  

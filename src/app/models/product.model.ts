@@ -1,4 +1,4 @@
-import {CategoryEnum} from "../product-component/category.enum";
+import {CategoryEnum} from "../components/product-component/category.enum";
 
 export class ProductModel {
   readonly ref: string;

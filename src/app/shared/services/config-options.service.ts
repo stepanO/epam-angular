@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IConfigOptions} from "../models/i-config-options";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConfigOptionsService {
   options: IConfigOptions = {
     id: '',

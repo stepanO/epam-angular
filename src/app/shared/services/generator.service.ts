@@ -1,29 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GeneratorService {
 
-  constructor() { }
-
-
-  * generateSequence(start: number, end: number) : IterableIterator<number> {
-    for (let i = start; i <= end; i++) yield i;
+  constructor() {
   }
 
-  * generate() {
-
-    // 0..9
-    yield* this.generateSequence(48, 57);
-
-    // A..Z
-    yield* this.generateSequence(65, 90);
-
-    // a..z
-    yield* this.generateSequence(97, 122);
-
+  generate(length) {
+    const result = [];
+    for (let i = 0; length > i; i++) {
+      const random = Math.random();
+      result.push(random < 0.3 ? getRandomChar(48, 57) : random < 0.6 ? getRandomChar(65, 90) : getRandomChar(97, 122));
+    }
+    return result.join('');
   }
-
 }
 
+function getRandomChar(min: number, max: number) {
+  return String.fromCharCode(min + Math.floor(Math.random() * Math.floor(max)));
+}

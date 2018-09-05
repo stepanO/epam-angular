@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {CartModel} from "../models/cart.model";
-import {CartService} from "../services/cart/cart.service";
-import {CartProductModel} from "../models/cart-product.model";
 import {Subscription} from "rxjs/internal/Subscription";
+import {CartModel} from "../../models/cart.model";
+import {CartProductModel} from "../../models/cart-product.model";
+import {CartService} from "../../services/cart/cart.service";
 
 @Component({
   selector: 'app-cart-component',

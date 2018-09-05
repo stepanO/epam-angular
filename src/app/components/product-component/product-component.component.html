@@ -1,5 +1,5 @@
 <div class="product" [ngClass]="{disabled: !product.isAvailable}">
-  <h3 class="product__name">{{product.name}}</h3>
+  <h3 class="product__name" [appClickHighlighting]="{fontSize: 18, border: '1px solid black'}">{{product.name}}</h3>
 <ul>
   <li>description: {{product.description}}</li>
   <li>category: {{product.category}}</li>
